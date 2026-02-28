@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yukiya. M | Photographer Portfolio</title>
+  
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons (CDN) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- カスタムスタイル -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600&display=swap');
+    
+    .font-serif {
+      font-family: 'Noto Serif JP', serif;
+    }
+    .vertical-rl {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+    
+    /* スクロールバーのカスタマイズ */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    /* アニメーション用クラス */
+    @keyframes scroll {
+      0% { transform: translateY(-100%); }
+      50% { transform: translateY(0); }
+      100% { transform: translateY(100%); }
+    }
+    .animate-scroll {
+      animation: scroll 2s ease-in-out infinite;
+    }
+
+    /* ロード時のフェードインアニメーション */
+    .load-fade-up {
+      opacity: 0;
+      transform: translateY(3rem);
+      transition: all 2000ms ease-out;
+    }
+    .load-fade-up.is-loaded {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .load-fade {
+      opacity: 0;
+      transition: opacity 1000ms ease-out;
+    }
+    .load-fade.is-loaded {
+      opacity: 1;
+    }
+
+    /* スクロール時のReveal（フワッと表示）アニメーション */
+    .reveal {
+      opacity: 0;
+      transition-property: opacity, transform, scale;
+      transition-duration: 1500ms;
+      transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-up {
+      transform: translateY(4rem);
+    }
+    .reveal-right {
+      transform: translateX(-4rem);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+    }
+  </style>
+</head>
+<body class="bg-[#0a0a0a] min-h-screen text-[#e5e5e5] font-sans selection:bg-white/20 selection:text-white">
+
+  <!-- ナビゲーション -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-700 bg-transparent py-8">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+      <div class="font-serif text-lg tracking-[0.2em] uppercase font-light cursor-pointer hover:opacity-70 transition-opacity">
+        Yukiya. M
+      </div>
+      <div class="hidden md:flex gap-12 font-serif text-sm tracking-[0.15em] font-light">
+        <a href="#concept" class="hover:text-white transition-colors relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-white hover:after:w-full after:transition-all after:duration-300">Concept</a>
+        <a href="#works" class="hover:text-white transition-colors relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-white hover:after:w-full after:transition-all after:duration-300">Works</a>
+        <a href="#profile" class="hover:text-white transition-colors relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-white hover:after:w-full after:transition-all after:duration-300">Profile</a>
+        <a href="#contact" class="hover:text-white transition-colors relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-0 after:h-[1px] after:bg-white hover:after:w-full after:transition-all after:duration-300">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ヒーローセクション -->
+  <section class="relative h-screen w-full overflow-hidden flex items-center justify-center">
+    <!-- 背景画像 (パララックス効果) -->
+    <div 
+      id="hero-bg"
+      class="absolute inset-0 w-full h-[120%] -top-[10%] bg-cover bg-center bg-no-repeat transition-transform duration-100 ease-out"
+      style="background-image: url('https://images.unsplash.com/photo-1513326738677-b964603b136d?auto=format&fit=crop&q=80&w=2000')"
+    >
+      <!-- ダークオーバーレイ -->
+      <div class="absolute inset-0 bg-[#0a0a0a]/70"></div>
+    </div>
+
+    <!-- ヒーローテキスト -->
+    <div class="relative z-10 text-center px-6 mix-blend-lighten">
+      <div class="load-fade-up">
+        <h1 class="font-serif text-4xl md:text-5xl lg:text-7xl tracking-[0.15em] leading-relaxed font-light mb-8 text-white/90">
+          世界の片隅に落ちる光、<br class="md:hidden" />
+          <span class="inline-block mt-4 md:mt-6">名もなき人々のドラマ。</span>
+        </h1>
+        <p class="font-serif text-sm md:text-base tracking-[0.2em] font-light text-white/60 mt-12 delay-700">
+          DOCUMENTARY & STREET
+        </p>
+      </div>
+    </div>
+
+    <!-- スクロールインジケーター -->
+    <div class="load-fade absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center" style="transition-delay: 1000ms;">
+      <span class="font-serif text-xs tracking-[0.2em] text-white/50 mb-4">SCROLL</span>
+      <div class="w-[1px] h-16 bg-white/20 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-white/60 animate-scroll"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- コンセプトセクション -->
+  <section id="concept" class="py-32 md:py-48 px-6 relative">
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-16 md:gap-24 items-center md:items-start">
+      
+      <div class="flex-1 space-y-12 md:space-y-16">
+        <div class="reveal reveal-up">
+          <h2 class="font-serif text-2xl md:text-3xl tracking-[0.15em] font-light border-l border-white/20 pl-6 leading-relaxed">
+            レンズ越しに出会う、<br />
+            世界の体温と匂い。
+          </h2>
+        </div>
+        
+        <div class="reveal reveal-up" style="transition-delay: 200ms">
+          <div class="font-serif text-sm md:text-base leading-[2.5] tracking-[0.1em] text-white/70 space-y-8 font-light">
+            <p>
+              異国の街角、石畳に落ちる深い影。<br />
+              行き交う人々の眼差しや、夕暮れに染まる路地裏。
+            </p>
+            <p>
+              光と影が織りなす圧倒的なドラマは、<br />
+              世界の至る所に、静かに存在しています。
+            </p>
+            <p>
+              レンズを通して切り取るのは、飾らない人間の姿であり、<br />
+              その土地が持つ固有の空気です。<br />
+              名前も知らない誰かの人生が交差する瞬間を、<br />
+              永遠に色褪せない記憶として刻み込みます。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-up w-full md:w-1/3 flex justify-center md:justify-end" style="transition-delay: 400ms">
+        <!-- 縦書きのアクセントテキスト -->
+        <div class="font-serif vertical-rl text-xl md:text-2xl tracking-[0.3em] font-light text-white/80 h-72 border-l border-white/20 pl-8 md:pl-0 md:pr-8 md:border-l-0 md:border-r">
+          息づかいまで、写し取る。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ギャラリーセクション -->
+  <section id="works" class="py-24 bg-[#050505]">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="reveal reveal-up">
+        <div class="mb-20 flex flex-col md:flex-row justify-between items-end gap-6">
+          <div>
+            <h2 class="font-serif text-3xl md:text-4xl tracking-[0.15em] font-light mb-4">Works</h2>
+            <p class="font-serif text-sm tracking-[0.1em] text-white/50">作品集 - 記憶の断片</p>
+          </div>
+          <button class="group flex items-center gap-4 text-sm font-serif tracking-widest text-white/70 hover:text-white transition-colors">
+            VIEW ALL 
+            <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-2"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- グリッドレイアウト（Masonry風） -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+        <!-- 列 1 -->
+        <div class="space-y-6 md:space-y-10 pt-0 md:pt-12">
+          <!-- Gallery Item 1 -->
+          <div class="reveal reveal-up group cursor-pointer" style="transition-delay: 0ms">
+            <div class="relative overflow-hidden w-full bg-black aspect-[3/4]">
+              <img src="https://images.unsplash.com/photo-1531123414780-f74242c2b052?auto=format&fit=crop&q=80&w=800" alt="民族と色彩" class="object-cover w-full h-full transition-all duration-1000 ease-out brightness-50 group-hover:brightness-100 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out flex flex-col justify-end p-8">
+                <p class="text-white/70 text-sm tracking-widest mb-2 font-light">PORTRAIT</p>
+                <h3 class="text-white text-xl tracking-widest font-serif">色彩の誇り</h3>
+              </div>
+            </div>
+          </div>
+          <!-- Gallery Item 2 -->
+          <div class="reveal reveal-up group cursor-pointer" style="transition-delay: 200ms">
+            <div class="relative overflow-hidden w-full bg-black aspect-[3/4]">
+              <img src="https://images.unsplash.com/photo-1513622470522-26c31136c1f1?auto=format&fit=crop&q=80&w=800" alt="石畳の階段" class="object-cover w-full h-full transition-all duration-1000 ease-out brightness-50 group-hover:brightness-100 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out flex flex-col justify-end p-8">
+                <p class="text-white/70 text-sm tracking-widest mb-2 font-light">MONOCHROME</p>
+                <h3 class="text-white text-xl tracking-widest font-serif">刻まれた時間</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 列 2 -->
+        <div class="space-y-6 md:space-y-10">
+          <!-- Gallery Item 3 -->
+          <div class="reveal reveal-up group cursor-pointer" style="transition-delay: 100ms">
+            <div class="relative overflow-hidden w-full bg-black aspect-[3/4]">
+              <img src="https://images.unsplash.com/photo-1517598024396-46c53fb391a1?auto=format&fit=crop&q=80&w=800" alt="夜の街角" class="object-cover w-full h-full transition-all duration-1000 ease-out brightness-50 group-hover:brightness-100 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out flex flex-col justify-end p-8">
+                <p class="text-white/70 text-sm tracking-widest mb-2 font-light">STREET</p>
+                <h3 class="text-white text-xl tracking-widest font-serif">夜の帳</h3>
+              </div>
+            </div>
+          </div>
+          <!-- Gallery Item 4 -->
+          <div class="reveal reveal-up group cursor-pointer" style="transition-delay: 300ms">
+            <div class="relative overflow-hidden w-full bg-black aspect-[3/4]">
+              <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=800" alt="路地裏の猫" class="object-cover w-full h-full transition-all duration-1000 ease-out brightness-50 group-hover:brightness-100 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out flex flex-col justify-end p-8">
+                <p class="text-white/70 text-sm tracking-widest mb-2 font-light">STREET</p>
+                <h3 class="text-white text-xl tracking-widest font-serif">路地の主</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 列 3 -->
+        <div class="space-y-6 md:space-y-10 pt-0 md:pt-24 lg:pt-24">
+          <!-- Gallery Item 5 -->
+          <div class="reveal reveal-up group cursor-pointer" style="transition-delay: 200ms">
+            <div class="relative overflow-hidden w-full bg-black aspect-[3/4]">
+              <img src="https://images.unsplash.com/photo-1555529733-0e670560f8e1?auto=format&fit=crop&q=80&w=800" alt="群衆と音楽" class="object-cover w-full h-full transition-all duration-1000 ease-out brightness-50 group-hover:brightness-100 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out flex flex-col justify-end p-8">
+                <p class="text-white/70 text-sm tracking-widest mb-2 font-light">DOCUMENTARY</p>
+                <h3 class="text-white text-xl tracking-widest font-serif">鼓動</h3>
+              </div>
+            </div>
+          </div>
+          <!-- Gallery Item 6 -->
+          <div class="reveal reveal-up group cursor-pointer" style="transition-delay: 400ms">
+            <div class="relative overflow-hidden w-full bg-black aspect-[3/4]">
+              <img src="https://images.unsplash.com/photo-1494522855154-9297ac14b55f?auto=format&fit=crop&q=80&w=800" alt="夕暮れのタクシー" class="object-cover w-full h-full transition-all duration-1000 ease-out brightness-50 group-hover:brightness-100 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out flex flex-col justify-end p-8">
+                <p class="text-white/70 text-sm tracking-widest mb-2 font-light">JOURNEY</p>
+                <h3 class="text-white text-xl tracking-widest font-serif">黄昏の街</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- プロフィールセクション -->
+  <section id="profile" class="py-32 px-6">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-16 items-center">
+      <div class="reveal reveal-right w-full md:w-1/2">
+        <div class="relative aspect-[3/4] w-full max-w-md mx-auto">
+          <img src="https://images.unsplash.com/photo-1618077360395-f3068be8e001?auto=format&fit=crop&q=80&w=800" alt="Photographer" class="object-cover w-full h-full brightness-75" />
+          <!-- 装飾枠 -->
+          <div class="absolute -inset-4 border border-white/10 hidden md:block"></div>
+        </div>
+      </div>
+      
+      <div class="w-full md:w-1/2 space-y-8">
+        <div class="reveal reveal-up" style="transition-delay: 200ms">
+          <h2 class="font-serif text-3xl tracking-[0.1em] font-light">Yukiya. M</h2>
+          <p class="font-serif text-sm tracking-[0.1em] text-white/50 mt-2">Documentary Photographer</p>
+        </div>
+        
+        <div class="reveal reveal-up" style="transition-delay: 300ms">
+          <p class="font-serif text-sm md:text-base leading-[2.2] tracking-[0.1em] text-white/70 font-light">
+            1990年生まれ。東京を拠点に活動。<br />
+            世界各地を旅しながら、ドキュメンタリー、ストリート、ポートレートを中心に撮影を行う。<br /><br />
+            文化の交差点や、名もなき人々の日常にレンズを向け、その土地固有の空気感をドラマチックな光と影で切り取るスタイルが高く評価されている。<br />
+            モノクロームの静謐さと、シネマティックな色彩美を自在に行き来し、一枚の写真から前後の物語を想像させるような作品を生み出し続けている。
+          </p>
+        </div>
+        
+        <div class="reveal reveal-up" style="transition-delay: 400ms">
+          <div class="pt-8 border-t border-white/10">
+            <p class="font-serif text-sm tracking-[0.15em] mb-4">AWARDS</p>
+            <ul class="space-y-2 font-serif text-xs text-white/60 tracking-wider">
+              <li>2023 - International Photography Awards / Honorable Mention</li>
+              <li>2021 - Tokyo Photo Festival / Newcomer Award</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター / コンタクト -->
+  <footer id="contact" class="bg-black pt-32 pb-12 px-6 relative overflow-hidden">
+    <!-- 背景の薄いテキスト -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none opacity-[0.03]">
+      <span class="font-serif text-[10vw] whitespace-nowrap tracking-widest">LUMIÈRE & OMBRE</span>
+    </div>
+
+    <div class="max-w-4xl mx-auto relative z-10 text-center">
+      <div class="reveal reveal-up">
+        <h2 class="font-serif text-3xl md:text-5xl tracking-[0.15em] font-light mb-8">Contact</h2>
+        <p class="font-serif text-sm md:text-base tracking-[0.1em] text-white/60 font-light mb-16">
+          撮影のご依頼、ご相談はお気軽にお問い合わせください。<br />
+          あなたの特別な日常を、美しく残すお手伝いをいたします。
+        </p>
+        
+        <div class="flex justify-center gap-8 mb-24">
+          <a href="mailto:info@example.com" class="group flex items-center gap-3 text-white/70 hover:text-white transition-colors font-serif tracking-widest text-sm">
+            <i data-lucide="mail" class="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity"></i>
+            <span>info@example.com</span>
+          </a>
+          <a href="#" class="group flex items-center gap-3 text-white/70 hover:text-white transition-colors font-serif tracking-widest text-sm">
+            <i data-lucide="instagram" class="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity"></i>
+            <span>@yukiya_m_photo</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal reveal-up" style="transition-delay: 200ms">
+        <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 gap-4 text-xs font-serif text-white/30 tracking-[0.1em]">
+          <p>&copy; 2026 Yukiya. M Photography. All Rights Reserved.</p>
+          <button id="btn-back-to-top" class="hover:text-white transition-colors flex items-center gap-2">
+            BACK TO TOP <i data-lucide="chevron-down" class="w-3 h-3 rotate-180"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript: アニメーション等の制御 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Lucideアイコンの初期化
+      lucide.createIcons();
+
+      // 2. ロード時のフェードイン制御（疑似ローディング）
+      setTimeout(() => {
+        document.querySelectorAll('.load-fade-up, .load-fade').forEach(el => {
+          el.classList.add('is-loaded');
+        });
+      }, 100);
+
+      // 3. スクロール時の制御 (ナビゲーション背景 & パララックス)
+      const nav = document.getElementById('navbar');
+      const heroBg = document.getElementById('hero-bg');
+
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        
+        // ナビゲーション背景の切り替え
+        if (scrollY > 50) {
+          nav.classList.add('bg-[#0a0a0a]/90', 'backdrop-blur-md', 'py-4');
+          nav.classList.remove('bg-transparent', 'py-8');
+        } else {
+          nav.classList.remove('bg-[#0a0a0a]/90', 'backdrop-blur-md', 'py-4');
+          nav.classList.add('bg-transparent', 'py-8');
+        }
+
+        // ヒーロー画像のパララックス
+        if (heroBg) {
+          heroBg.style.transform = `translateY(${scrollY * 0.3}px)`;
+        }
+      }, { passive: true });
+
+      // 4. スクロールによる要素のフェードイン表示 (Intersection Observer)
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target); // 一度表示されたら監視を解除
+          }
+        });
+      }, observerOptions);
+
+      // .revealクラスを持つすべての要素を監視
+      document.querySelectorAll('.reveal').forEach(el => {
+        observer.observe(el);
+      });
+
+      // 5. ページトップへ戻るボタン
+      const backToTopBtn = document.getElementById('btn-back-to-top');
+      if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
