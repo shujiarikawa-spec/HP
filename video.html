@@ -209,18 +209,35 @@
 
       <div class="space-y-32">
         <!-- 1. Event & Wedding -->
-        <div class="flex flex-col md:flex-row gap-12 items-center reveal reveal-up">
-          <div class="w-full md:w-1/2 group cursor-pointer relative overflow-hidden aspect-video bg-black">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800"
-              alt="Wedding"
-              class="w-full h-full object-cover opacity-70 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700" />
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div
-                class="play-button-overlay w-16 h-16 rounded-full border border-white/50 flex items-center justify-center backdrop-blur-sm">
-                <i data-lucide="play" class="w-6 h-6 text-white ml-1"></i>
+        <div class="flex flex-col md:flex-row gap-12 items-center md:items-start reveal reveal-up">
+
+          <!-- 左：動画 -->
+          <div class="w-full md:w-1/2 relative overflow-hidden aspect-video bg-black">
+            <div class="relative w-full aspect-video bg-black overflow-hidden cursor-pointer group"
+              onclick="loadVideo(this,'E5jXojR6cms')">
+
+              <!-- サムネ -->
+              <img src="https://img.youtube.com/vi/E5jXojR6cms/maxresdefault.jpg"
+                class="w-full h-full object-cover transition duration-500" alt="YouTube Thumbnail">
+
+              <!-- 🔥 ホバーで暗くなるレイヤー -->
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition duration-500"></div>
+
+              <!-- 再生ボタン -->
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-20 h-20 rounded-full bg-black/50 backdrop-blur-sm
+                flex items-center justify-center 
+                group-hover:scale-110 transition duration-300">
+                  <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
               </div>
+
             </div>
           </div>
+
+          <!-- 右：テキスト -->
           <div class="w-full md:w-1/2 space-y-6">
             <p class="text-xs font-serif tracking-[0.2em] text-white/50">01</p>
             <h3 class="font-serif text-2xl tracking-widest">Event & Wedding</h3>
@@ -229,21 +246,37 @@
               大切な一日の感情の動きや、ゲストの温かい表情を、映画のような質感で残します。ハイライト映像から記録映像まで柔軟に対応いたします。
             </p>
           </div>
+
         </div>
 
         <!-- 2. Promotion Video -->
         <div class="flex flex-col md:flex-row-reverse gap-12 items-center reveal reveal-up">
-          <div class="w-full md:w-1/2 group cursor-pointer relative overflow-hidden aspect-video bg-black">
-            <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=800"
-              alt="Promotion"
-              class="w-full h-full object-cover opacity-70 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700" />
+
+          <!-- 動画 -->
+          <div class="relative w-full md:w-1/2 aspect-video bg-black overflow-hidden cursor-pointer group"
+            onclick="loadVideo(this, 'QdqI3J4wQf8')">
+
+            <!-- サムネ -->
+            <img src="https://img.youtube.com/vi/QdqI3J4wQf8/maxresdefault.jpg"
+              class="w-full h-full object-cover transition duration-500" alt="Promotion Thumbnail">
+
+            <!-- ホバー暗く -->
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition duration-500"></div>
+
+            <!-- 再生ボタン -->
             <div class="absolute inset-0 flex items-center justify-center">
-              <div
-                class="play-button-overlay w-16 h-16 rounded-full border border-white/50 flex items-center justify-center backdrop-blur-sm">
-                <i data-lucide="play" class="w-6 h-6 text-white ml-1"></i>
+              <div class="w-20 h-20 rounded-full bg-black/50 backdrop-blur-sm
+                  flex items-center justify-center 
+                  group-hover:scale-110 transition duration-300">
+                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
               </div>
             </div>
+
           </div>
+
+          <!-- テキスト -->
           <div class="w-full md:w-1/2 space-y-6">
             <p class="text-xs font-serif tracking-[0.2em] text-white/50">02</p>
             <h3 class="font-serif text-2xl tracking-widest">Promotion Video</h3>
@@ -252,22 +285,38 @@
               「何を伝えたいか」というコンセプトを深く掘り下げ、視覚と聴覚の両方からターゲット層の心を動かす映像をご提案します。
             </p>
           </div>
+
         </div>
 
         <!-- 3. SNS Short Movie -->
         <div class="flex flex-col md:flex-row gap-12 items-center reveal reveal-up">
+
+          <!-- 動画 -->
           <div
-            class="w-full md:w-1/2 group cursor-pointer relative overflow-hidden aspect-[4/5] md:aspect-video bg-black">
-            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800"
-              alt="SNS Short"
-              class="w-full h-full object-cover opacity-70 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700 object-center" />
+            class="relative w-full md:w-1/2 aspect-[4/5] md:aspect-video bg-black overflow-hidden cursor-pointer group"
+            onclick="loadVideo(this, 'aMSDfSKeaME')">
+
+            <!-- サムネ -->
+            <img src="https://img.youtube.com/vi/aMSDfSKeaME/maxresdefault.jpg"
+              class="w-full h-full object-cover transition duration-500" alt="SNS Short Thumbnail">
+
+            <!-- ホバー暗転 -->
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition duration-500"></div>
+
+            <!-- 再生ボタン -->
             <div class="absolute inset-0 flex items-center justify-center">
-              <div
-                class="play-button-overlay w-16 h-16 rounded-full border border-white/50 flex items-center justify-center backdrop-blur-sm">
-                <i data-lucide="play" class="w-6 h-6 text-white ml-1"></i>
+              <div class="w-20 h-20 rounded-full bg-black/50 backdrop-blur-sm
+                  flex items-center justify-center 
+                  group-hover:scale-110 transition duration-300">
+                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
               </div>
             </div>
+
           </div>
+
+          <!-- テキスト -->
           <div class="w-full md:w-1/2 space-y-6">
             <p class="text-xs font-serif tracking-[0.2em] text-white/50">03</p>
             <h3 class="font-serif text-2xl tracking-widest">SNS Short Movie</h3>
@@ -276,6 +325,7 @@
               数秒で目を引きつけるテンポの良い編集と、スマートフォンでの視聴に最適化された高品質な映像を制作します。
             </p>
           </div>
+
         </div>
 
       </div>
@@ -356,6 +406,17 @@
       document.querySelectorAll('.reveal').forEach(el => {
         observer.observe(el);
       });
+      window.loadVideo = function (element, videoId) {
+        element.innerHTML = `
+    <iframe
+      class="w-full h-full"
+      src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0&controls=0&iv_load_policy=3&disablekb=1&playsinline=1"
+      frameborder="0"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  `;
+      }
     });
   </script>
 </body>
