@@ -1,45 +1,90 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Video Production | SHU ARI</title>
-   <meta name="description" content="SHU ARIの公式ポートフォリオサイト。ドキュメンタリーやストリートを中心に、光と影が織りなすシネマティックな世界観を表現するビデオ＆フォトグラファー。作品・プロフィール・映像作品を掲載。">
+  <meta name="description"
+    content="SHU ARIの公式ポートフォリオサイト。ドキュメンタリーやストリートを中心に、光と影が織りなすシネマティックな世界観を表現するビデオ＆フォトグラファー。作品・プロフィール・映像作品を掲載。">
   <meta property="og:title" content="Video Production | SHU ARI">
-<meta property="og:description" content="光と影が織りなすシネマティックな世界観を描くフォトグラファー。ドキュメンタリー・ストリート・映像作品を掲載。">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://oneness-oki.com">
-<meta property="og:image" content="https://oneness-oki.com/ogp.jpg">
+  <meta property="og:description" content="光と影が織りなすシネマティックな世界観を描くフォトグラファー。ドキュメンタリー・ストリート・映像作品を掲載。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://oneness-oki.com">
+  <meta property="og:image" content="https://oneness-oki.com/ogp.jpg">
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- カスタムスタイル (index.htmlと共通) -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600&display=swap');
-    
-    .font-serif { font-family: 'Noto Serif JP', serif; }
-    .vertical-rl { writing-mode: vertical-rl; text-orientation: mixed; }
-    
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #0a0a0a; }
-    ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+    .font-serif {
+      font-family: 'Noto Serif JP', serif;
+    }
+
+    .vertical-rl {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
 
     @keyframes scroll {
-      0% { transform: translateY(-100%); }
-      50% { transform: translateY(0); }
-      100% { transform: translateY(100%); }
-    }
-    .animate-scroll { animation: scroll 2s ease-in-out infinite; }
+      0% {
+        transform: translateY(-100%);
+      }
 
-    .load-fade-up { opacity: 0; transform: translateY(3rem); transition: all 2000ms ease-out; }
-    .load-fade-up.is-loaded { opacity: 1; transform: translateY(0); }
-    
-    .load-fade { opacity: 0; transition: opacity 1000ms ease-out; }
-    .load-fade.is-loaded { opacity: 1; }
+      50% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(100%);
+      }
+    }
+
+    .animate-scroll {
+      animation: scroll 2s ease-in-out infinite;
+    }
+
+    .load-fade-up {
+      opacity: 0;
+      transform: translateY(3rem);
+      transition: all 2000ms ease-out;
+    }
+
+    .load-fade-up.is-loaded {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .load-fade {
+      opacity: 0;
+      transition: opacity 1000ms ease-out;
+    }
+
+    .load-fade.is-loaded {
+      opacity: 1;
+    }
 
     .reveal {
       opacity: 0;
@@ -47,26 +92,39 @@
       transition-duration: 1500ms;
       transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .reveal-up { transform: translateY(4rem); }
-    .reveal-right { transform: translateX(-4rem); }
-    .reveal.is-visible { opacity: 1; transform: translate(0, 0) scale(1); }
+
+    .reveal-up {
+      transform: translateY(4rem);
+    }
+
+    .reveal-right {
+      transform: translateX(-4rem);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+    }
 
     /* 動画ホバー用エフェクト */
     .play-button-overlay {
       transition: all 0.5s ease;
     }
+
     .group:hover .play-button-overlay {
       transform: scale(1.1);
       background-color: rgba(255, 255, 255, 0.2);
     }
   </style>
 </head>
+
 <body class="bg-[#0a0a0a] min-h-screen text-[#e5e5e5] font-sans selection:bg-white/20 selection:text-white">
 
   <!-- ナビゲーション -->
   <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-700 bg-transparent py-8">
     <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-      <a href="index.html" class="font-serif text-lg tracking-[0.2em] uppercase font-light cursor-pointer hover:opacity-70 transition-opacity">
+      <a href="index.html"
+        class="font-serif text-lg tracking-[0.2em] uppercase font-light cursor-pointer hover:opacity-70 transition-opacity">
         SHU ARI
       </a>
       <div class="hidden md:flex gap-12 font-serif text-sm tracking-[0.15em] font-light items-center">
@@ -80,18 +138,17 @@
   <!-- ヒーローセクション -->
   <section class="relative h-[80vh] w-full overflow-hidden flex items-center justify-center">
     <!-- 背景画像 (シネマティックな機材や撮影現場の雰囲気) -->
-    <div 
-      id="hero-bg"
+    <div id="hero-bg"
       class="absolute inset-0 w-full h-[120%] -top-[10%] bg-cover bg-center bg-no-repeat transition-transform duration-100 ease-out grayscale-[0.5]"
-      style="background-image: url('https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=2000')"
-    >
+      style="background-image: url('https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=2000')">
       <div class="absolute inset-0 bg-[#0a0a0a]/80"></div>
     </div>
 
     <div class="relative z-10 text-center px-6">
       <div class="load-fade-up">
         <p class="font-serif text-xs md:text-sm tracking-[0.3em] font-light text-white/50 mb-6">VIDEO PRODUCTION</p>
-        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl tracking-[0.15em] leading-relaxed font-light mb-8 text-white/90">
+        <h1
+          class="font-serif text-4xl md:text-5xl lg:text-6xl tracking-[0.15em] leading-relaxed font-light mb-8 text-white/90">
           動く光、流れる時間。<br />
           <span class="inline-block mt-4 md:mt-6">記憶を、映画のように。</span>
         </h1>
@@ -107,7 +164,8 @@
           写真が切り取る「一瞬」に、<br />
           「時間の流れ」と「空気感」を吹き込む。
         </h2>
-        <p class="font-serif text-sm md:text-base leading-[2.5] tracking-[0.1em] text-white/70 font-light max-w-2xl mx-auto">
+        <p
+          class="font-serif text-sm md:text-base leading-[2.5] tracking-[0.1em] text-white/70 font-light max-w-2xl mx-auto">
           映像は、その場に流れていた音や声、空気の震えまでをも記録します。<br>
           単なる記録ではなく、見る人の心を揺さぶる「物語」として。<br><br>
           ヒアリングを通してあなたの想いを汲み取り、<br>
@@ -117,21 +175,25 @@
       </div>
 
       <!-- サポートステップ -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 border-y border-white/10 py-16 reveal reveal-up" style="transition-delay: 200ms">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 border-y border-white/10 py-16 reveal reveal-up"
+        style="transition-delay: 200ms">
         <div class="text-center px-4">
           <div class="text-white/30 font-serif text-3xl mb-4 italic">01</div>
           <h3 class="font-serif tracking-widest text-lg mb-4">PLANNING</h3>
-          <p class="text-sm text-white/60 tracking-wider leading-relaxed font-light">ヒアリングを通じた構成案の作成、ロケーションの提案など、撮影前の土台作りを丁寧に行います。</p>
+          <p class="text-sm text-white/60 tracking-wider leading-relaxed font-light">
+            ヒアリングを通じた構成案の作成、ロケーションの提案など、撮影前の土台作りを丁寧に行います。</p>
         </div>
         <div class="text-center px-4 md:border-l md:border-white/10">
           <div class="text-white/30 font-serif text-3xl mb-4 italic">02</div>
           <h3 class="font-serif tracking-widest text-lg mb-4">SHOOTING</h3>
-          <p class="text-sm text-white/60 tracking-wider leading-relaxed font-light">シネマカメラと自然光を駆使し、ドキュメンタリータッチでその場にしかない空気感を切り取ります。</p>
+          <p class="text-sm text-white/60 tracking-wider leading-relaxed font-light">
+            シネマカメラと自然光を駆使し、ドキュメンタリータッチでその場にしかない空気感を切り取ります。</p>
         </div>
         <div class="text-center px-4 md:border-l md:border-white/10">
           <div class="text-white/30 font-serif text-3xl mb-4 italic">03</div>
           <h3 class="font-serif tracking-widest text-lg mb-4">EDITING</h3>
-          <p class="text-sm text-white/60 tracking-wider leading-relaxed font-light">映像の魅力を最大限に引き出すカラーグレーディングと、感情に寄り添う音響設計で作品を仕上げます。</p>
+          <p class="text-sm text-white/60 tracking-wider leading-relaxed font-light">
+            映像の魅力を最大限に引き出すカラーグレーディングと、感情に寄り添う音響設計で作品を仕上げます。</p>
         </div>
       </div>
     </div>
@@ -149,9 +211,12 @@
         <!-- 1. Event & Wedding -->
         <div class="flex flex-col md:flex-row gap-12 items-center reveal reveal-up">
           <div class="w-full md:w-1/2 group cursor-pointer relative overflow-hidden aspect-video bg-black">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800" alt="Wedding" class="w-full h-full object-cover opacity-70 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700" />
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800"
+              alt="Wedding"
+              class="w-full h-full object-cover opacity-70 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700" />
             <div class="absolute inset-0 flex items-center justify-center">
-              <div class="play-button-overlay w-16 h-16 rounded-full border border-white/50 flex items-center justify-center backdrop-blur-sm">
+              <div
+                class="play-button-overlay w-16 h-16 rounded-full border border-white/50 flex items-center justify-center backdrop-blur-sm">
                 <i data-lucide="play" class="w-6 h-6 text-white ml-1"></i>
               </div>
             </div>
@@ -169,9 +234,12 @@
         <!-- 2. Promotion Video -->
         <div class="flex flex-col md:flex-row-reverse gap-12 items-center reveal reveal-up">
           <div class="w-full md:w-1/2 group cursor-pointer relative overflow-hidden aspect-video bg-black">
-            <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=800" alt="Promotion" class="w-full h-full object-cover opacity-70 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700" />
+            <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=800"
+              alt="Promotion"
+              class="w-full h-full object-cover opacity-70 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700" />
             <div class="absolute inset-0 flex items-center justify-center">
-              <div class="play-button-overlay w-16 h-16 rounded-full border border-white/50 flex items-center justify-center backdrop-blur-sm">
+              <div
+                class="play-button-overlay w-16 h-16 rounded-full border border-white/50 flex items-center justify-center backdrop-blur-sm">
                 <i data-lucide="play" class="w-6 h-6 text-white ml-1"></i>
               </div>
             </div>
@@ -188,10 +256,14 @@
 
         <!-- 3. SNS Short Movie -->
         <div class="flex flex-col md:flex-row gap-12 items-center reveal reveal-up">
-          <div class="w-full md:w-1/2 group cursor-pointer relative overflow-hidden aspect-[4/5] md:aspect-video bg-black">
-            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800" alt="SNS Short" class="w-full h-full object-cover opacity-70 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700 object-center" />
+          <div
+            class="w-full md:w-1/2 group cursor-pointer relative overflow-hidden aspect-[4/5] md:aspect-video bg-black">
+            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800"
+              alt="SNS Short"
+              class="w-full h-full object-cover opacity-70 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700 object-center" />
             <div class="absolute inset-0 flex items-center justify-center">
-              <div class="play-button-overlay w-16 h-16 rounded-full border border-white/50 flex items-center justify-center backdrop-blur-sm">
+              <div
+                class="play-button-overlay w-16 h-16 rounded-full border border-white/50 flex items-center justify-center backdrop-blur-sm">
                 <i data-lucide="play" class="w-6 h-6 text-white ml-1"></i>
               </div>
             </div>
@@ -219,16 +291,18 @@
           映像制作のご相談、お見積もりなどお気軽にご連絡ください。<br>
           予算や納期に合わせたプランニングも可能です。
         </p>
-        
-        <a href="mailto:info@example.com" class="inline-flex items-center gap-3 text-white hover:text-gray-300 transition-colors font-serif tracking-widest text-sm border-b border-white pb-2 mb-24">
+
+        <a href="mailto:info@example.com"
+          class="inline-flex items-center gap-3 text-white hover:text-gray-300 transition-colors font-serif tracking-widest text-sm border-b border-white pb-2 mb-24">
           <i data-lucide="mail" class="w-4 h-4"></i>
-          <span>info@example.com</span>
+          <span>shuji.arikawa@gmail.com</span>
         </a>
       </div>
 
       <div class="reveal reveal-up" style="transition-delay: 200ms">
-        <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 gap-4 text-xs font-serif text-white/30 tracking-[0.1em]">
-          <p>&copy; 2026 Yukiya. M Photography & Video.</p>
+        <div
+          class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 gap-4 text-xs font-serif text-white/30 tracking-[0.1em]">
+          <p>&copy; 2026 Video Production | SHU ARI</p>
           <a href="index.html" class="hover:text-white transition-colors">RETURN TO MAIN SITE</a>
         </div>
       </div>
@@ -251,7 +325,7 @@
 
       window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
-        
+
         if (scrollY > 50) {
           nav.classList.add('bg-[#0a0a0a]/90', 'backdrop-blur-md', 'py-4');
           nav.classList.remove('bg-transparent', 'py-8');
@@ -285,4 +359,5 @@
     });
   </script>
 </body>
+
 </html>
