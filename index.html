@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>沖縄のドキュメンタリー・ストリート写真家 SHU ARI | Okinawa Photographer</title>
+  <meta name="google-site-verification" content="6P7HaSW7ccI92Z8q0ktM5gSDIeejOFT3mNrf3Plm0Zo" />
+  <meta name="description"
+    content="沖縄を拠点に活動するドキュメンタリー・ストリート写真家 SHU ARIの公式サイト。沖縄・国内外でのポートレート、ストリートフォト、映像制作を手がける。撮影依頼受付中。Okinawa Photographer.">
+  <meta property="og:title" content="SHU ARI photo.n.movie.making | Documentary & Street Photographer">
+  <meta property="og:description" content="光と影が織りなすシネマティックな世界観を描くフォトグラファー。ドキュメンタリー・ストリート・映像作品を掲載。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://oneness-oki.com">
+  <meta property="og:image" content="https://oneness-oki.com/ogp.jpg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&display=swap');
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: #0a0a0a;
+      color: #e5e5e5;
+      font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+      font-weight: 300;
+      min-height: 100vh
+    }
+
+    img {
+      display: block;
+      max-width: 100%
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    button {
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: inherit;
+      font: inherit
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 4px
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0
+    }
+
+    .v-rl {
+      writing-mode: vertical-rl;
+      text-orientation: mixed
+    }
+
+    @keyframes scrollLine {
+      0% {
+        transform: translateY(-100%)
+      }
+
+      50% {
+        transform: translateY(0)
+      }
+
+      100% {
+        transform: translateY(100%)
+      }
+    }
+
+    .load-fade-up {
+      opacity: 0;
+      transform: translateY(3rem);
+      transition: opacity 2000ms ease-out, transform 2000ms ease-out
+    }
+
+    .load-fade-up.loaded {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .load-fade {
+      opacity: 0;
+      transition: opacity 1000ms ease-out
+    }
+
+    .load-fade.loaded {
+      opacity: 1
+    }
+
+    .reveal {
+      opacity: 0;
+      transition: opacity 1500ms cubic-bezier(.16, 1, .3, 1), transform 1500ms cubic-bezier(.16, 1, .3, 1)
+    }
+
+    .reveal-up {
+      transform: translateY(4rem)
+    }
+
+    .reveal-right {
+      transform: translateX(-4rem)
+    }
+
+    .reveal.vis {
+      opacity: 1;
+      transform: translate(0, 0)
+    }
+
+    /* --- NAV --- */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 50;
+      padding: 2rem 0;
+      transition: background 700ms, padding 700ms, backdrop-filter 700ms
+    }
+
+    #navbar.scrolled {
+      background: rgba(10, 10, 10, .92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 1rem 0
+    }
+
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center
+    }
+
+    .nav-logo {
+      font-size: 1.05rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      font-weight: 300;
+      cursor: pointer;
+      transition: opacity 300ms
+    }
+
+    .nav-logo:hover {
+      opacity: .7
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      font-size: .875rem;
+      letter-spacing: .15em;
+      font-weight: 300
+    }
+
+    .nav-links a {
+      color: rgba(229, 229, 229, .82);
+      transition: color 300ms
+    }
+
+    .nav-links a:hover {
+      color: #fff
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: .5rem;
+      margin-right: -.5rem
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: rgba(229, 229, 229, .85);
+      transition: transform 300ms, opacity 300ms
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg)
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg)
+    }
+
+    #nav-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      background: rgba(10, 10, 10, .97);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      opacity: 0;
+      transition: opacity 500ms;
+      pointer-events: none
+    }
+
+    #nav-drawer.open {
+      opacity: 1;
+      pointer-events: auto
+    }
+
+    #nav-drawer a {
+      font-size: 1.25rem;
+      letter-spacing: .25em;
+      font-weight: 300;
+      color: rgba(255, 255, 255, .8);
+      transition: color 300ms
+    }
+
+    #nav-drawer a:hover {
+      color: #fff
+    }
+
+    /* --- HERO --- */
+    .hero {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 120%;
+      top: -10%;
+      background-size: cover;
+      background-position: center;
+      background-image: url('img/8.png');
+      transition: transform 100ms linear
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 10, 10, .70)
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 0 1.25rem;
+      width: 100%;
+      max-width: 90vw;
+      mix-blend-mode: lighten
+    }
+
+    .hero-heading {
+      font-size: clamp(1.5rem, 5.5vw, 4.5rem);
+      font-weight: 300;
+      letter-spacing: .1em;
+      line-height: 1.85;
+      color: rgba(255, 255, 255, .92);
+      word-break: keep-all;
+      overflow-wrap: break-word;
+      margin-bottom: 2.5rem
+    }
+
+    .hero-sub {
+      font-size: clamp(.6rem, 2.2vw, .875rem);
+      letter-spacing: .22em;
+      color: rgba(255, 255, 255, .55);
+      font-weight: 300
+    }
+
+    .scroll-ind {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .75rem
+    }
+
+    .scroll-txt {
+      font-size: .6rem;
+      letter-spacing: .22em;
+      color: rgba(255, 255, 255, .45)
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 3.5rem;
+      background: rgba(255, 255, 255, .18);
+      position: relative;
+      overflow: hidden
+    }
+
+    .scroll-line::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, .65);
+      animation: scrollLine 2s ease-in-out infinite
+    }
+
+    /* --- CONCEPT --- */
+    .concept {
+      padding: clamp(4rem, 10vw, 12rem) clamp(1.25rem, 4vw, 3rem)
+    }
+
+    .concept-inner {
+      max-width: 56rem;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem
+    }
+
+    .concept-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem
+    }
+
+    .concept-heading {
+      font-size: clamp(1.05rem, 4.5vw, 1.875rem);
+      font-weight: 300;
+      letter-spacing: .12em;
+      line-height: 1.9;
+      border-left: 1px solid rgba(255, 255, 255, .22);
+      padding-left: 1.25rem;
+      color: rgba(229, 229, 229, .95);
+      word-break: keep-all;
+      overflow-wrap: break-word
+    }
+
+    .concept-body {
+      font-size: clamp(.72rem, 3vw, 1rem);
+      line-height: 2.5;
+      letter-spacing: .08em;
+      color: rgba(229, 229, 229, .68);
+      font-weight: 300
+    }
+
+    .concept-body p+p {
+      margin-top: 1.5rem
+    }
+
+    .accent-wrap {
+      display: flex;
+      justify-content: center
+    }
+
+    .accent-txt {
+      font-size: clamp(.9rem, 3.5vw, 1.5rem);
+      letter-spacing: .3em;
+      font-weight: 300;
+      color: rgba(229, 229, 229, .78);
+      height: 10rem;
+      border-left: 1px solid rgba(255, 255, 255, .22);
+      padding-left: 1.5rem
+    }
+
+    /* --- WORKS --- */
+    .works {
+      padding: clamp(3rem, 8vw, 6rem) 0;
+      background: #050505
+    }
+
+    .works-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 4vw, 3rem)
+    }
+
+    .works-hdr {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: clamp(1.5rem, 4vw, 5rem);
+      gap: 1rem
+    }
+
+    .works-title {
+      font-size: clamp(1.5rem, 6vw, 2.25rem);
+      font-weight: 300;
+      letter-spacing: .15em;
+      margin-bottom: .35rem
+    }
+
+    .works-sub {
+      font-size: clamp(.6rem, 2.2vw, .875rem);
+      letter-spacing: .1em;
+      color: rgba(229, 229, 229, .45)
+    }
+
+    .view-all {
+      font-size: clamp(.6rem, 2.2vw, .875rem);
+      letter-spacing: .2em;
+      color: rgba(229, 229, 229, .65);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      white-space: nowrap;
+      transition: color 300ms
+    }
+
+    .view-all:hover {
+      color: #fff
+    }
+
+    .arr {
+      display: inline-block;
+      transition: transform 300ms
+    }
+
+    .view-all:hover .arr {
+      transform: translateX(4px)
+    }
+
+    .gallery-sp {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(.4rem, 2vw, .75rem)
+    }
+
+    .gallery-pc {
+      display: none;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem
+    }
+
+    .gallery-pc .col {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem
+    }
+
+    .gallery-pc .c1 {
+      padding-top: 3rem
+    }
+
+    .gallery-pc .c3 {
+      padding-top: 6rem
+    }
+
+    .gitem {
+      position: relative;
+      overflow: hidden;
+      background: #111;
+      aspect-ratio: 3/4;
+      cursor: pointer
+    }
+
+    .gitem img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(.52);
+      transition: filter 1000ms, transform 1000ms
+    }
+
+    .gitem:hover img {
+      filter: brightness(1);
+      transform: scale(1.05)
+    }
+
+    .gcap {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, .82) 0%, rgba(0, 0, 0, .18) 40%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: clamp(.6rem, 2vw, 2rem);
+      transition: opacity 700ms
+    }
+
+    .gcat {
+      font-size: clamp(.52rem, 1.8vw, .75rem);
+      letter-spacing: .15em;
+      color: rgba(255, 255, 255, .58);
+      font-weight: 300;
+      margin-bottom: .2rem
+    }
+
+    .gname {
+      font-size: clamp(.7rem, 3vw, 1.25rem);
+      letter-spacing: .1em;
+      color: #fff;
+      font-weight: 300
+    }
+
+    /* --- PROFILE --- */
+    .profile {
+      padding: clamp(4rem, 10vw, 8rem) clamp(1.25rem, 4vw, 3rem)
+    }
+
+    .profile-inner {
+      max-width: 64rem;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem
+    }
+
+    .p-img-wrap {
+      width: 100%;
+      max-width: 200px
+    }
+
+    .p-img-box {
+      position: relative;
+      aspect-ratio: 3/4;
+      width: 100%
+    }
+
+    .p-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(.75)
+    }
+
+    .p-frame {
+      display: none;
+      position: absolute;
+      inset: -1rem;
+      border: 1px solid rgba(255, 255, 255, .1);
+      pointer-events: none
+    }
+
+    .p-text {
+      width: 100%
+    }
+
+    .p-name {
+      font-size: clamp(1.3rem, 5vw, 1.875rem);
+      font-weight: 300;
+      letter-spacing: .1em
+    }
+
+    .p-role {
+      font-size: clamp(.65rem, 2.5vw, .875rem);
+      letter-spacing: .12em;
+      color: rgba(229, 229, 229, .45);
+      margin-top: .5rem
+    }
+
+    .p-bio {
+      font-size: clamp(.72rem, 2.8vw, 1rem);
+      line-height: 2.3;
+      letter-spacing: .08em;
+      color: rgba(229, 229, 229, .68);
+      font-weight: 300;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, .1)
+    }
+
+    /* --- CONTACT / FOOTER --- */
+    .contact {
+      background: #000;
+      padding: clamp(4rem, 10vw, 8rem) clamp(1.25rem, 4vw, 1.5rem) clamp(2rem, 5vw, 3rem);
+      position: relative;
+      overflow: hidden;
+      text-align: center
+    }
+
+    .contact-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      text-align: center;
+      pointer-events: none;
+      opacity: .03;
+      font-size: 10vw;
+      white-space: nowrap;
+      letter-spacing: .1em;
+      overflow: hidden
+    }
+
+    .contact-inner {
+      max-width: 48rem;
+      margin: 0 auto;
+      position: relative;
+      z-index: 10
+    }
+
+    .ct-title {
+      font-size: clamp(1.75rem, 7vw, 3rem);
+      font-weight: 300;
+      letter-spacing: .15em;
+      margin-bottom: 1.5rem
+    }
+
+    .ct-sub {
+      font-size: clamp(.68rem, 2.8vw, 1rem);
+      line-height: 2.1;
+      letter-spacing: .08em;
+      color: rgba(229, 229, 229, .58);
+      font-weight: 300;
+      margin-bottom: clamp(2rem, 5vw, 4rem)
+    }
+
+    .ct-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: clamp(3rem, 6vw, 5rem)
+    }
+
+    .ct-link {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: clamp(.62rem, 2.5vw, .875rem);
+      letter-spacing: .12em;
+      color: rgba(229, 229, 229, .68);
+      transition: color 300ms;
+      font-weight: 300
+    }
+
+    .ct-link:hover {
+      color: #fff
+    }
+
+    .ct-link svg {
+      flex-shrink: 0;
+      opacity: .55;
+      transition: opacity 300ms
+    }
+
+    .ct-link:hover svg {
+      opacity: 1
+    }
+
+    .footer-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, .1)
+    }
+
+    .f-copy {
+      font-size: clamp(.58rem, 2vw, .75rem);
+      letter-spacing: .1em;
+      color: rgba(229, 229, 229, .28)
+    }
+
+    .btn-top {
+      font-size: clamp(.58rem, 2vw, .75rem);
+      letter-spacing: .15em;
+      color: rgba(229, 229, 229, .3);
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      transition: color 300ms
+    }
+
+    .btn-top:hover {
+      color: #fff
+    }
+
+    .btn-top svg {
+      transform: rotate(180deg)
+    }
+
+    /* --- スマホ：キャプション常時表示 --- */
+    @media(max-width:767px) {
+      .gcap {
+        opacity: 1
+      }
+    }
+
+    /* --- 768px以上 --- */
+    @media(min-width:768px) {
+      .nav-links {
+        display: flex !important
+      }
+
+      .hamburger {
+        display: none !important
+      }
+
+      #nav-drawer {
+        display: none !important
+      }
+
+      .concept-inner {
+        flex-direction: row;
+        gap: 6rem;
+        align-items: flex-start
+      }
+
+      .accent-wrap {
+        width: 33%;
+        flex-shrink: 0;
+        justify-content: flex-end
+      }
+
+      .accent-txt {
+        height: 18rem;
+        border-left: none;
+        padding-left: 0;
+        border-right: 1px solid rgba(255, 255, 255, .22);
+        padding-right: 2rem
+      }
+
+      .gallery-sp {
+        display: none !important
+      }
+
+      .gallery-pc {
+        display: grid !important
+      }
+
+      .profile-inner {
+        flex-direction: row;
+        gap: 4rem;
+        align-items: center
+      }
+
+      .p-img-wrap {
+        max-width: none;
+        width: 50%
+      }
+
+      .p-frame {
+        display: block
+      }
+
+      .p-text {
+        width: 50%
+      }
+
+      .ct-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem
+      }
+
+      .footer-bar {
+        flex-direction: row;
+        justify-content: space-between
+      }
+    }
+
+    /* --- スマホ：ハンバーガー --- */
+    @media(max-width:767px) {
+      .nav-links {
+        display: none
+      }
+
+      .hamburger {
+        display: flex
+      }
+
+      #nav-drawer {
+        display: flex
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">SHU ARI</div>
+      <div class="nav-links">
+        <a href="#concept">Concept</a>
+        <a href="#works">Works</a>
+        <a href="./video.html">Video</a>
+        <a href="#profile">Profile</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="hamburger" id="nav-toggle" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div id="nav-drawer">
+      <a href="#concept">Concept</a>
+      <a href="#works">Works</a>
+      <a href="./video.html">Video</a>
+      <a href="#profile">Profile</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg" id="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="sr-only">沖縄のドキュメンタリー・ストリート写真家 SHU ARI</h1>
+      <div class="load-fade-up">
+        <h2 class="hero-heading">世界の片隅に落ちる光、<br>名もなき人々のドラマ。</h2>
+        <p class="hero-sub">DOCUMENTARY & STREET</p>
+      </div>
+    </div>
+    <div class="scroll-ind load-fade" style="transition-delay:1000ms">
+      <span class="scroll-txt">SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <section id="concept" class="concept">
+    <div class="concept-inner">
+      <div class="concept-main">
+        <div class="reveal reveal-up">
+          <h2 class="concept-heading">レンズ越しに出会う、<br>世界の体温と匂い。</h2>
+        </div>
+        <div class="reveal reveal-up" style="transition-delay:200ms">
+          <div class="concept-body">
+            <p>異国の街角、石畳に落ちる深い影。<br>行き交う人々の眼差しや、夕暮れに染まる路地裏。</p>
+            <p>光と影が織りなす圧倒的なドラマは、<br>世界の至る所に、静かに存在しています。</p>
+            <p>レンズを通して切り取るのは、飾らない人間の姿であり、<br>その土地が持つ固有の空気です。<br>名前も知らない誰かの人生が交差する瞬間を、<br>永遠に色褪せない記憶として刻み込みます。</p>
+          </div>
+        </div>
+      </div>
+      <div class="accent-wrap reveal reveal-up" style="transition-delay:400ms">
+        <div class="accent-txt v-rl">息づかいまで、写し取る。</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="works" class="works">
+    <div class="works-inner">
+      <div class="reveal reveal-up">
+        <div class="works-hdr">
+          <div>
+            <div class="works-title">Works</div>
+            <div class="works-sub">作品集 - 記憶の断片</div>
+          </div>
+          <a href="https://500px.com/p/photo_n_movie_making?view=photos" target="_blank" rel="noopener noreferrer"
+            class="view-all">VIEW ALL <i class="arr">→</i></a>
+        </div>
+      </div>
+
+      <!-- スマホ用2列 -->
+      <div class="gallery-sp">
+        <div class="gitem reveal reveal-up" style="transition-delay:0ms"><img src="img/3.png" alt="民族と色彩"
+            loading="lazy">
+          <div class="gcap">
+            <div class="gcat">PORTRAIT</div>
+            <div class="gname">色彩の誇り</div>
+          </div>
+        </div>
+        <div class="gitem reveal reveal-up" style="transition-delay:50ms"><img src="img/6.png" alt="夜の街角"
+            loading="lazy">
+          <div class="gcap">
+            <div class="gcat">STREET</div>
+            <div class="gname">夜の帳</div>
+          </div>
+        </div>
+        <div class="gitem reveal reveal-up" style="transition-delay:100ms"><img src="img/7.png" alt="石畳の階段"
+            loading="lazy">
+          <div class="gcap">
+            <div class="gcat">MONOCHROME</div>
+            <div class="gname">刻まれた時間</div>
+          </div>
+        </div>
+        <div class="gitem reveal reveal-up" style="transition-delay:150ms"><img src="img/4.png" alt="路地裏の猫"
+            loading="lazy">
+          <div class="gcap">
+            <div class="gcat">STREET</div>
+            <div class="gname">路地の主</div>
+          </div>
+        </div>
+        <div class="gitem reveal reveal-up" style="transition-delay:200ms"><img src="img/1.png" alt="群衆と音楽"
+            loading="lazy">
+          <div class="gcap">
+            <div class="gcat">DOCUMENTARY</div>
+            <div class="gname">鼓動</div>
+          </div>
+        </div>
+        <div class="gitem reveal reveal-up" style="transition-delay:250ms"><img src="img/2.png" alt="夕暮れのタクシー"
+            loading="lazy">
+          <div class="gcap">
+            <div class="gcat">JOURNEY</div>
+            <div class="gname">黄昏の街</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PC用3列 -->
+      <div class="gallery-pc">
+        <div class="col c1">
+          <div class="gitem reveal reveal-up" style="transition-delay:0ms"><img src="img/3.png" alt="民族と色彩"
+              loading="lazy">
+            <div class="gcap">
+              <div class="gcat">PORTRAIT</div>
+              <div class="gname">色彩の誇り</div>
+            </div>
+          </div>
+          <div class="gitem reveal reveal-up" style="transition-delay:200ms"><img src="img/7.png" alt="石畳の階段"
+              loading="lazy">
+            <div class="gcap">
+              <div class="gcat">MONOCHROME</div>
+              <div class="gname">刻まれた時間</div>
+            </div>
+          </div>
+        </div>
+        <div class="col c2">
+          <div class="gitem reveal reveal-up" style="transition-delay:100ms"><img src="img/6.png" alt="夜の街角"
+              loading="lazy">
+            <div class="gcap">
+              <div class="gcat">STREET</div>
+              <div class="gname">夜の帳</div>
+            </div>
+          </div>
+          <div class="gitem reveal reveal-up" style="transition-delay:300ms"><img src="img/4.png" alt="路地裏の猫"
+              loading="lazy">
+            <div class="gcap">
+              <div class="gcat">STREET</div>
+              <div class="gname">路地の主</div>
+            </div>
+          </div>
+        </div>
+        <div class="col c3">
+          <div class="gitem reveal reveal-up" style="transition-delay:200ms"><img src="img/1.png" alt="群衆と音楽"
+              loading="lazy">
+            <div class="gcap">
+              <div class="gcat">DOCUMENTARY</div>
+              <div class="gname">鼓動</div>
+            </div>
+          </div>
+          <div class="gitem reveal reveal-up" style="transition-delay:400ms"><img src="img/2.png" alt="夕暮れのタクシー"
+              loading="lazy">
+            <div class="gcap">
+              <div class="gcat">JOURNEY</div>
+              <div class="gname">黄昏の街</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="profile" class="profile">
+    <div class="profile-inner">
+      <div class="p-img-wrap reveal reveal-right">
+        <div class="p-img-box">
+          <img src="img/profile-2.png" alt="SHU ARI Portrait" loading="lazy">
+          <div class="p-frame"></div>
+        </div>
+      </div>
+      <div class="p-text">
+        <div class="reveal reveal-up" style="transition-delay:200ms">
+          <div class="p-name">SHU ARI</div>
+          <div class="p-role">Documentary Photographer</div>
+        </div>
+        <div class="reveal reveal-up" style="transition-delay:300ms">
+          <p class="p-bio">
+            1984年生まれ。沖縄を拠点に活動。<br>世界各地を旅しながら、ドキュメンタリー、ストリート、ポートレートを中心に撮影を行う。<br><br>文化の交差点や、名もなき人々の日常にレンズを向け、その土地固有の空気感をドラマチックな光と影で切り取るスタイル。<br>モノクロームの静謐さと、シネマティックな色彩美を自在に行き来し、一枚の写真から前後の物語を想像させるような作品を創作し続けている。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact" class="contact">
+    <div class="contact-bg">LUMIÈRE &amp; OMBRE</div>
+    <div class="contact-inner">
+      <div class="reveal reveal-up">
+        <h2 class="ct-title">Contact</h2>
+        <p class="ct-sub">撮影のご依頼、ご相談はお気軽にお問い合わせください。<br>あなたの特別な日常を、美しく残すお手伝いをいたします。</p>
+        <div class="ct-links">
+          <a href="mailto:shuji.arikawa@gmail.com" class="ct-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m22 7-10 7L2 7" />
+            </svg>
+            <span>shuji.arikawa@gmail.com</span>
+          </a>
+          <a href="https://www.instagram.com/photo.n.movie.making/" target="_blank" rel="noopener noreferrer"
+            class="ct-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+            </svg>
+            <span>@photo.n.movie.making</span>
+          </a>
+        </div>
+      </div>
+      <div class="reveal reveal-up" style="transition-delay:200ms">
+        <div class="footer-bar">
+          <p class="f-copy">&copy; 2026 SHU ARI Photography. All Rights Reserved.</p>
+          <button class="btn-top" id="btn-back-to-top">
+            BACK TO TOP
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        document.querySelectorAll('.load-fade-up,.load-fade').forEach(el => el.classList.add('loaded'));
+      }, 100);
+
+      const toggle = document.getElementById('nav-toggle');
+      const drawer = document.getElementById('nav-drawer');
+      let open = false;
+      toggle?.addEventListener('click', () => {
+        open = !open;
+        toggle.classList.toggle('open', open);
+        drawer.classList.toggle('open', open);
+      });
+      drawer?.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          open = false; toggle.classList.remove('open'); drawer.classList.remove('open');
+        });
+      });
+
+      const nav = document.getElementById('navbar');
+      const bg = document.getElementById('hero-bg');
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        nav.classList.toggle('scrolled', y > 50);
+        if (bg) bg.style.transform = `translateY(${y * .3}px)`;
+      }, { passive: true });
+
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+      }, { threshold: .1, rootMargin: '0px 0px -50px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+      document.getElementById('btn-back-to-top')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    });
+  </script>
+</body>
+
+</html>
