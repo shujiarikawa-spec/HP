@@ -5,71 +5,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Video Production | SHU ARI</title>
-  <meta name="description"
-    content="SHU ARIの公式ポートフォリオサイト。ドキュメンタリーやストリートを中心に、光と影が織りなすシネマティックな世界観を表現するビデオ＆フォトグラファー。作品・プロフィール・映像作品を掲載。">
-  <meta property="og:title" content="Video Production | SHU ARI">
-  <meta property="og:description" content="光と影が織りなすシネマティックな世界観を描くフォトグラファー。ドキュメンタリー・ストリート・映像作品を掲載。">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://oneness-oki.com">
-  <meta property="og:image" content="https://oneness-oki.com/ogp.jpg">
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Lucide Icons -->
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/favicon.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- カスタムスタイル (index.htmlと共通) -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600&display=swap');
 
-    .font-serif {
-      font-family: 'Noto Serif JP', serif;
-    }
-
-    .vertical-rl {
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-    }
-
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
+    body {
       background: #0a0a0a;
+      color: #e5e5e5;
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      -webkit-text-size-adjust: 100%;
     }
 
-    ::-webkit-scrollbar-thumb {
-      background: #333;
-      border-radius: 4px;
+    .keep-all {
+      word-break: keep-all;
+      overflow-wrap: break-word;
     }
 
-    ::-webkit-scrollbar-thumb:hover {
-      background: #555;
+    /* 流動的なフォントサイズ設定 */
+    .hero-heading {
+      font-size: clamp(1.5rem, 8vw, 4.5rem);
+      line-height: 1.85;
+      letter-spacing: 0.1em;
     }
 
-    @keyframes scroll {
-      0% {
-        transform: translateY(-100%);
-      }
-
-      50% {
-        transform: translateY(0);
-      }
-
-      100% {
-        transform: translateY(100%);
-      }
+    .section-title {
+      font-size: clamp(1.2rem, 5vw, 2.25rem);
+      letter-spacing: 0.15em;
     }
 
-    .animate-scroll {
-      animation: scroll 2s ease-in-out infinite;
+    .fluid-body {
+      font-size: clamp(0.75rem, 2.5vw, 1rem);
+      line-height: 2.3;
     }
 
+    /* アニメーション */
     .load-fade-up {
       opacity: 0;
       transform: translateY(3rem);
-      transition: all 2000ms ease-out;
+      transition: opacity 2000ms ease-out, transform 2000ms ease-out;
     }
 
     .load-fade-up.is-loaded {
@@ -77,78 +57,48 @@
       transform: translateY(0);
     }
 
-    .load-fade {
-      opacity: 0;
-      transition: opacity 1000ms ease-out;
-    }
-
-    .load-fade.is-loaded {
-      opacity: 1;
-    }
-
     .reveal {
       opacity: 0;
-      transition-property: opacity, transform, scale;
-      transition-duration: 1500ms;
-      transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 1500ms cubic-bezier(.16, 1, .3, 1), transform 1500ms cubic-bezier(.16, 1, .3, 1);
     }
 
     .reveal-up {
       transform: translateY(4rem);
     }
 
-    .reveal-right {
-      transform: translateX(-4rem);
-    }
-
     .reveal.is-visible {
       opacity: 1;
-      transform: translate(0, 0) scale(1);
-    }
-
-    /* 動画ホバー用エフェクト */
-    .play-button-overlay {
-      transition: all 0.5s ease;
-    }
-
-    .group:hover .play-button-overlay {
-      transform: scale(1.1);
-      background-color: rgba(255, 255, 255, 0.2);
+      transform: translate(0, 0);
     }
   </style>
 </head>
 
-<body class="bg-[#0a0a0a] min-h-screen text-[#e5e5e5] font-sans selection:bg-white/20 selection:text-white">
+<body class="overflow-x-hidden selection:bg-white/20 selection:text-white">
 
-  <!-- ナビゲーション -->
   <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-700 bg-transparent py-8">
     <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
       <a href="index.html"
-        class="font-serif text-lg tracking-[0.2em] uppercase font-light cursor-pointer hover:opacity-70 transition-opacity">
+        class="text-[clamp(0.9rem,3vw,1.05rem)] tracking-[0.2em] uppercase font-light hover:opacity-70 transition-opacity">
         SHU ARI
       </a>
-      <div class="hidden md:flex gap-12 font-serif text-sm tracking-[0.15em] font-light items-center">
-        <a href="index.html" class="hover:text-white text-white/50 transition-colors flex items-center gap-2">
+      <div class="font-light tracking-[0.15em] text-[clamp(0.6rem,2vw,0.875rem)]">
+        <a href="index.html" class="text-white/50 hover:text-white transition-colors flex items-center gap-2">
           <i data-lucide="arrow-left" class="w-4 h-4"></i> BACK TO HOME
         </a>
       </div>
     </div>
   </nav>
 
-  <!-- ヒーローセクション -->
-  <section class="relative h-[80vh] w-full overflow-hidden flex items-center justify-center">
-    <!-- 背景画像 (シネマティックな機材や撮影現場の雰囲気) -->
-    <div id="hero-bg"
-      class="absolute inset-0 w-full h-[120%] -top-[10%] bg-cover bg-center bg-no-repeat transition-transform duration-100 ease-out grayscale-[0.5]"
+  <section class="relative h-screen w-full overflow-hidden flex items-center justify-center">
+    <div id="hero-bg" class="absolute inset-0 w-full h-[120%] -top-[10%] bg-cover bg-center grayscale-[0.5]"
       style="background-image: url('https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=2000')">
-      <div class="absolute inset-0 bg-[#0a0a0a]/80"></div>
+      <div class="absolute inset-0 bg-[#0a0a0a]/75"></div>
     </div>
-
-    <div class="relative z-10 text-center px-6">
+    <div class="relative z-10 text-center px-6 w-full max-w-[90vw]">
       <div class="load-fade-up">
-        <p class="font-serif text-xs md:text-sm tracking-[0.3em] font-light text-white/50 mb-6">VIDEO PRODUCTION</p>
-        <h1
-          class="font-serif text-4xl md:text-5xl lg:text-6xl tracking-[0.15em] leading-relaxed font-light mb-8 text-white/90">
+        <p class="text-[clamp(0.6rem,2.2vw,0.875rem)] tracking-[0.3em] text-white/50 mb-6 uppercase">Video Production
+        </p>
+        <h1 class="hero-heading font-light text-white/90 keep-all">
           動く光、流れる時間。<br />
           <span class="inline-block mt-4 md:mt-6">記憶を、映画のように。</span>
         </h1>
@@ -156,243 +106,148 @@
     </div>
   </section>
 
-  <!-- コンセプト & サービスフロー -->
-  <section class="py-24 md:py-32 px-6 relative bg-[#050505]">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center reveal reveal-up mb-24">
-        <h2 class="font-serif text-2xl md:text-3xl tracking-[0.15em] font-light leading-relaxed mb-10">
+  <section class="py-[clamp(4rem,10vw,12rem)] px-6 bg-[#050505]">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="reveal reveal-up">
+        <h2
+          class="section-title font-light leading-relaxed mb-12 keep-all border-l md:border-l-0 md:border-b border-white/20 pb-4 md:pb-8 inline-block">
           写真が切り取る「一瞬」に、<br />
-          「時間の流れ」と「空気感」を吹き込む。
+          「時間の流れ」を吹き込む。
         </h2>
-        <p
-          class="font-serif text-sm md:text-base leading-[2.5] tracking-[0.1em] text-white/70 font-light max-w-2xl mx-auto">
+        <p class="fluid-body tracking-[0.1em] text-white/70 max-w-2xl mx-auto">
           映像は、その場に流れていた音や声、空気の震えまでをも記録します。<br>
           単なる記録ではなく、見る人の心を揺さぶる「物語」として。<br><br>
           ヒアリングを通してあなたの想いを汲み取り、<br>
-          企画・提案から、撮影、カラーグレーディング、編集まで。<br>
           シネマティックな品質で、一貫してサポートいたします。
         </p>
       </div>
 
-      <!-- サポートステップ -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 border-y border-white/10 py-16 reveal reveal-up"
-        style="transition-delay: 200ms">
-        <div class="text-center px-4">
-          <div class="text-white/30 font-serif text-3xl mb-4 italic">01</div>
-          <h3 class="font-serif tracking-widest text-lg mb-4">PLANNING</h3>
-          <p class="text-sm text-white/60 tracking-wider leading-relaxed font-light">
-            ヒアリングを通じた構成案の作成、ロケーションの提案など、撮影前の土台作りを丁寧に行います。</p>
+      <div
+        class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-4 border-y border-white/10 py-16 mt-24 reveal reveal-up">
+        <div class="px-4">
+          <div class="text-white/30 text-3xl mb-4 italic">01</div>
+          <h3 class="tracking-[0.2em] text-lg mb-4">PLANNING</h3>
+          <p class="text-[clamp(0.65rem,2vw,0.8rem)] text-white/60 leading-relaxed">撮影前の土台作りを丁寧に行います。</p>
         </div>
-        <div class="text-center px-4 md:border-l md:border-white/10">
-          <div class="text-white/30 font-serif text-3xl mb-4 italic">02</div>
-          <h3 class="font-serif tracking-widest text-lg mb-4">SHOOTING</h3>
-          <p class="text-sm text-white/60 tracking-wider leading-relaxed font-light">
-            シネマカメラと自然光を駆使し、ドキュメンタリータッチでその場にしかない空気感を切り取ります。</p>
+        <div class="px-4 md:border-l md:border-white/10">
+          <div class="text-white/30 text-3xl mb-4 italic">02</div>
+          <h3 class="tracking-[0.2em] text-lg mb-4">SHOOTING</h3>
+          <p class="text-[clamp(0.65rem,2vw,0.8rem)] text-white/60 leading-relaxed">その場の空気感をシネマカメラで切り取ります。</p>
         </div>
-        <div class="text-center px-4 md:border-l md:border-white/10">
-          <div class="text-white/30 font-serif text-3xl mb-4 italic">03</div>
-          <h3 class="font-serif tracking-widest text-lg mb-4">EDITING</h3>
-          <p class="text-sm text-white/60 tracking-wider leading-relaxed font-light">
-            映像の魅力を最大限に引き出すカラーグレーディングと、感情に寄り添う音響設計で作品を仕上げます。</p>
+        <div class="px-4 md:border-l md:border-white/10">
+          <div class="text-white/30 text-3xl mb-4 italic">03</div>
+          <h3 class="tracking-[0.2em] text-lg mb-4">EDITING</h3>
+          <p class="text-[clamp(0.65rem,2vw,0.8rem)] text-white/60 leading-relaxed">感情に寄り添う音と色彩で作品を仕上げます。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 制作ジャンル / ギャラリー -->
-  <section class="py-32 px-6">
+  <section class="py-[clamp(4rem,10vw,12rem)] px-6">
     <div class="max-w-6xl mx-auto">
-      <div class="reveal reveal-up mb-20 text-center">
-        <h2 class="font-serif text-3xl tracking-[0.15em] font-light mb-4">Service & Works</h2>
-        <p class="font-serif text-sm tracking-[0.1em] text-white/50">対応ジャンルと制作実績</p>
+      <div class="reveal reveal-up mb-24 text-center">
+        <h2 class="section-title font-light mb-4">Service & Works</h2>
+        <p class="text-[clamp(0.6rem,2.2vw,0.875rem)] tracking-[0.1em] text-white/40 uppercase">Production Gallery</p>
       </div>
 
-      <div class="space-y-32">
-        <!-- 1. Event & Wedding -->
-        <div class="flex flex-col md:flex-row gap-12 items-center md:items-start reveal reveal-up">
-
-          <!-- 左：動画 -->
-          <div class="w-full md:w-1/2 relative overflow-hidden aspect-video bg-black">
-            <div class="relative w-full aspect-video bg-black overflow-hidden cursor-pointer group"
-              onclick="loadVideo(this,'E5jXojR6cms')">
-
-              <!-- サムネ -->
+      <div class="space-y-[clamp(6rem,15vw,12rem)]">
+        <div class="flex flex-col md:flex-row gap-12 items-center reveal reveal-up">
+          <div class="w-full md:w-3/5 group cursor-pointer relative overflow-hidden"
+            onclick="loadVideo(this,'E5jXojR6cms')">
+            <div class="aspect-video bg-black overflow-hidden relative">
               <img src="https://img.youtube.com/vi/E5jXojR6cms/maxresdefault.jpg"
-                class="w-full h-full object-cover transition duration-500" alt="YouTube Thumbnail">
-
-              <!-- 🔥 ホバーで暗くなるレイヤー -->
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition duration-500"></div>
-
-              <!-- 再生ボタン -->
+                class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition duration-1000">
               <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-20 h-20 rounded-full bg-black/50 backdrop-blur-sm
-                flex items-center justify-center 
-                group-hover:scale-110 transition duration-300">
-                  <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
+                <div
+                  class="w-16 h-16 md:w-24 md:h-24 rounded-full bg-black/40 backdrop-blur-sm border border-white/20 flex items-center justify-center group-hover:scale-110 transition duration-500">
+                  <i data-lucide="play" class="w-6 h-6 md:w-10 md:h-10 fill-white text-white ml-1"></i>
                 </div>
               </div>
-
             </div>
           </div>
-
-          <!-- 右：テキスト -->
-          <div class="w-full md:w-1/2 space-y-6">
-            <p class="text-xs font-serif tracking-[0.2em] text-white/50">01</p>
-            <h3 class="font-serif text-2xl tracking-widest">Event & Wedding</h3>
-            <p class="font-serif text-sm leading-[2.2] tracking-wider text-white/70 font-light">
-              結婚式や各種イベントの記録。<br>
-              大切な一日の感情の動きや、ゲストの温かい表情を、映画のような質感で残します。ハイライト映像から記録映像まで柔軟に対応いたします。
-            </p>
+          <div class="w-full md:w-2/5 space-y-6 text-center md:text-left">
+            <p class="text-xs tracking-[0.3em] text-white/30 uppercase">01</p>
+            <h3 class="text-2xl md:text-3xl tracking-widest keep-all">Event & Wedding</h3>
+            <p class="fluid-body text-white/60">大切な一日の感情の動きを、映画のような質感で残します。</p>
           </div>
-
         </div>
 
-        <!-- 2. Promotion Video -->
         <div class="flex flex-col md:flex-row-reverse gap-12 items-center reveal reveal-up">
-
-          <!-- 動画 -->
-          <div class="relative w-full md:w-1/2 aspect-video bg-black overflow-hidden cursor-pointer group"
-            onclick="loadVideo(this, 'QdqI3J4wQf8')">
-
-            <!-- サムネ -->
-            <img src="https://img.youtube.com/vi/QdqI3J4wQf8/maxresdefault.jpg"
-              class="w-full h-full object-cover transition duration-500" alt="Promotion Thumbnail">
-
-            <!-- ホバー暗く -->
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition duration-500"></div>
-
-            <!-- 再生ボタン -->
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="w-20 h-20 rounded-full bg-black/50 backdrop-blur-sm
-                  flex items-center justify-center 
-                  group-hover:scale-110 transition duration-300">
-                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
+          <div class="w-full md:w-3/5 group cursor-pointer relative overflow-hidden"
+            onclick="loadVideo(this,'QdqI3J4wQf8')">
+            <div class="aspect-video bg-black overflow-hidden relative">
+              <img src="https://img.youtube.com/vi/QdqI3J4wQf8/maxresdefault.jpg"
+                class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition duration-1000">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 md:w-24 md:h-24 rounded-full bg-black/40 backdrop-blur-sm border border-white/20 flex items-center justify-center group-hover:scale-110 transition duration-500">
+                  <i data-lucide="play" class="w-6 h-6 md:w-10 md:h-10 fill-white text-white ml-1"></i>
+                </div>
               </div>
             </div>
-
           </div>
-
-          <!-- テキスト -->
-          <div class="w-full md:w-1/2 space-y-6">
-            <p class="text-xs font-serif tracking-[0.2em] text-white/50">02</p>
-            <h3 class="font-serif text-2xl tracking-widest">Promotion Video</h3>
-            <p class="font-serif text-sm leading-[2.2] tracking-wider text-white/70 font-light">
-              店舗のブランディングや、企業・商品のPR映像。<br>
-              「何を伝えたいか」というコンセプトを深く掘り下げ、視覚と聴覚の両方からターゲット層の心を動かす映像をご提案します。
-            </p>
+          <div class="w-full md:w-2/5 space-y-6 text-center md:text-right">
+            <p class="text-xs tracking-[0.3em] text-white/30 uppercase">02</p>
+            <h3 class="text-2xl md:text-3xl tracking-widest keep-all">Promotion Video</h3>
+            <p class="fluid-body text-white/60">心を動かすブランディング映像をご提案します。</p>
           </div>
-
         </div>
 
-        <!-- 3. SNS Short Movie -->
         <div class="flex flex-col md:flex-row gap-12 items-center reveal reveal-up">
-
-          <!-- 動画 -->
-          <div
-            class="relative w-full md:w-1/2 aspect-[4/5] md:aspect-video bg-black overflow-hidden cursor-pointer group"
-            onclick="loadVideo(this, 'aMSDfSKeaME')">
-
-            <!-- サムネ -->
-            <img src="https://img.youtube.com/vi/aMSDfSKeaME/maxresdefault.jpg"
-              class="w-full h-full object-cover transition duration-500" alt="SNS Short Thumbnail">
-
-            <!-- ホバー暗転 -->
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition duration-500"></div>
-
-            <!-- 再生ボタン -->
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="w-20 h-20 rounded-full bg-black/50 backdrop-blur-sm
-                  flex items-center justify-center 
-                  group-hover:scale-110 transition duration-300">
-                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
+          <div class="w-full md:w-3/5 group cursor-pointer relative overflow-hidden"
+            onclick="loadVideo(this,'aMSDfSKeaME')">
+            <div class="aspect-video bg-black overflow-hidden relative">
+              <img src="https://img.youtube.com/vi/aMSDfSKeaME/maxresdefault.jpg"
+                class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition duration-1000">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-16 h-16 md:w-24 md:h-24 rounded-full bg-black/40 backdrop-blur-sm border border-white/20 flex items-center justify-center group-hover:scale-110 transition duration-500">
+                  <i data-lucide="play" class="w-6 h-6 md:w-10 md:h-10 fill-white text-white ml-1"></i>
+                </div>
               </div>
             </div>
-
           </div>
-
-          <!-- テキスト -->
-          <div class="w-full md:w-1/2 space-y-6">
-            <p class="text-xs font-serif tracking-[0.2em] text-white/50">03</p>
-            <h3 class="font-serif text-2xl tracking-widest">SNS Short Movie</h3>
-            <p class="font-serif text-sm leading-[2.2] tracking-wider text-white/70 font-light">
-              Instagram ReelsやTikTok, YouTube Shorts向けの縦型ショート動画。<br>
-              数秒で目を引きつけるテンポの良い編集と、スマートフォンでの視聴に最適化された高品質な映像を制作します。
-            </p>
+          <div class="w-full md:w-2/5 space-y-6 text-center md:text-left">
+            <p class="text-xs tracking-[0.3em] text-white/30 uppercase">03</p>
+            <h3 class="text-2xl md:text-3xl tracking-widest keep-all">SNS Short Movie</h3>
+            <p class="fluid-body text-white/60">縦型に最適化された高品質なショート動画を制作します。</p>
           </div>
-
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- フッター -->
-  <footer class="bg-black pt-32 pb-12 px-6 relative overflow-hidden">
-    <div class="max-w-4xl mx-auto relative z-10 text-center">
+  <footer class="bg-black pt-32 pb-12 px-6 text-center">
+    <div class="max-w-4xl mx-auto">
       <div class="reveal reveal-up">
-        <h2 class="font-serif text-3xl tracking-[0.15em] font-light mb-8">Request a Project</h2>
-        <p class="font-serif text-sm tracking-[0.1em] text-white/60 font-light mb-12">
-          映像制作のご相談、お見積もりなどお気軽にご連絡ください。<br>
-          予算や納期に合わせたプランニングも可能です。
-        </p>
-
-        <a href="mailto:info@example.com"
-          class="inline-flex items-center gap-3 text-white hover:text-gray-300 transition-colors font-serif tracking-widest text-sm border-b border-white pb-2 mb-24">
+        <h2 class="section-title font-light mb-8">Contact</h2>
+        <a href="mailto:shuji.arikawa@gmail.com"
+          class="inline-flex items-center gap-3 text-white/80 hover:text-white transition-colors tracking-widest text-sm border-b border-white/30 pb-2 mb-24">
           <i data-lucide="mail" class="w-4 h-4"></i>
           <span>shuji.arikawa@gmail.com</span>
         </a>
       </div>
-
-      <div class="reveal reveal-up" style="transition-delay: 200ms">
-        <div
-          class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 gap-4 text-xs font-serif text-white/30 tracking-[0.1em]">
-          <p>&copy; 2026 Video Production | SHU ARI</p>
-          <a href="index.html" class="hover:text-white transition-colors">RETURN TO MAIN SITE</a>
-        </div>
+      <div
+        class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 gap-4 text-[clamp(0.5rem,2vw,0.75rem)] text-white/30 tracking-[0.2em]">
+        <p>&copy; 2026 SHU ARI Video Production.</p>
+        <a href="index.html" class="hover:text-white transition-colors">RETURN TO MAIN SITE</a>
       </div>
     </div>
   </footer>
 
-  <!-- JavaScript -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       lucide.createIcons();
-
-      setTimeout(() => {
-        document.querySelectorAll('.load-fade-up, .load-fade').forEach(el => {
-          el.classList.add('is-loaded');
-        });
-      }, 100);
+      setTimeout(() => document.querySelectorAll('.load-fade-up').forEach(el => el.classList.add('is-loaded')), 100);
 
       const nav = document.getElementById('navbar');
-      const heroBg = document.getElementById('hero-bg');
-
       window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-
-        if (scrollY > 50) {
-          nav.classList.add('bg-[#0a0a0a]/90', 'backdrop-blur-md', 'py-4');
-          nav.classList.remove('bg-transparent', 'py-8');
-        } else {
-          nav.classList.remove('bg-[#0a0a0a]/90', 'backdrop-blur-md', 'py-4');
-          nav.classList.add('bg-transparent', 'py-8');
-        }
-
-        if (heroBg) {
-          heroBg.style.transform = `translateY(${scrollY * 0.3}px)`;
-        }
+        const y = window.scrollY;
+        nav.classList.toggle('bg-[#0a0a0a]/92', y > 50);
+        nav.classList.toggle('backdrop-blur-md', y > 50);
+        nav.classList.toggle('py-4', y > 50);
+        document.getElementById('hero-bg').style.transform = `translateY(${y * 0.2}px)`;
       }, { passive: true });
-
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -401,22 +256,12 @@
             observer.unobserve(entry.target);
           }
         });
-      }, observerOptions);
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-      document.querySelectorAll('.reveal').forEach(el => {
-        observer.observe(el);
-      });
-      window.loadVideo = function (element, videoId) {
-        element.innerHTML = `
-    <iframe
-      class="w-full h-full"
-      src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0&controls=0&iv_load_policy=3&disablekb=1&playsinline=1"
-      frameborder="0"
-      allow="autoplay; encrypted-media; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  `;
-      }
+      window.loadVideo = function (el, id) {
+        el.innerHTML = `<iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+      };
     });
   </script>
 </body>
